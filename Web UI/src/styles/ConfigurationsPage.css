@@ -1,0 +1,23 @@
+.modern-table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid #dee2e6;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.modern-table th,
+.modern-table td {
+  border-right: 1px solid #dee2e6;
+  vertical-align: middle;
+}
+
+.modern-table th:last-child,
+.modern-table td:last-child {
+  border-right: none;
+}
+
+.modern-table thead th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+}

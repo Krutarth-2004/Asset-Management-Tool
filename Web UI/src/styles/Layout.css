@@ -1,0 +1,99 @@
+:root {
+  --nav-h: 64px;
+}
+
+/* Ensure full height structure */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding-top: var(--nav-h);
+  overflow: hidden; /* prevent body scroll */
+}
+
+/* NAVBAR */
+.navbar {
+  height: var(--nav-h);
+  min-height: var(--nav-h);
+  padding: 0 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1050;
+}
+
+/* SIDEBAR */
+#sidebar {
+  position: fixed;
+  top: var(--nav-h);
+  left: -250px;
+  width: 250px;
+  height: calc(100vh - var(--nav-h));
+  background: #212529;
+  color: #fff;
+  z-index: 1040;
+  padding: 1rem 0.5rem;
+  transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#sidebar.active {
+  left: 0;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.3);
+}
+
+/* MAIN CONTENT (scrollable) */
+#main-content {
+  position: absolute;
+  top: var(--nav-h);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1rem;
+  overflow-y: auto;
+  transition: margin-left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#main-content.shifted {
+  margin-left: 250px;
+}
+
+/* OVERLAY */
+#overlay {
+  position: fixed;
+  top: var(--nav-h);
+  left: 0;
+  width: 100vw;
+  height: calc(100vh - var(--nav-h));
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1030;
+}
+
+/* NAV DROPDOWN */
+.navbar .dropdown {
+  position: relative;
+}
+
+#navbarDropdownMenu {
+  z-index: 1100 !important;
+  left: auto !important;
+  right: 0 !important;
+  transform-origin: top right;
+}
+
+.dropdown-menu {
+  opacity: 0;
+  transform: translateY(-5px);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.dropdown-menu.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
